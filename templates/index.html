@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .home-grid { display: grid; grid-template-columns: 1fr 1.2fr; min-height: 500px; }
+    
+    .brand-side {
+        background-color: var(--alstom-navy);
+        color: white;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .icon-box {
+        width: 180px; height: 180px;
+        background: #10345a;
+        border-radius: 50%;
+        display: flex;
+        align-items: center; justify-content: center;
+        margin-bottom: 30px;
+        border: 5px solid rgba(255,255,255,0.05);
+    }
+    
+    .action-side { background: white; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
+    
+    .btn-corporate {
+        background-color: var(--alstom-blue);
+        color: white;
+        padding: 15px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        border-radius: 6px;
+        text-align: center;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    .btn-corporate:hover { background-color: var(--alstom-navy); color: white; transform: translateY(-2px); }
+</style>
+
+<div class="home-grid">
+    <div class="brand-side">
+        <div class="icon-box">
+            <i class="fas fa-tools fa-5x"></i>
+        </div>
+        <h2 class="fw-bold mb-3">PART SWAP<br>MANAGEMENT</h2>
+        <div style="width: 100px; height: 4px; background: white; margin-bottom: 20px;"></div>
+    </div>
+
+    <div class="action-side">
+        <div class="mb-5 text-end">
+            <h4 class="fw-bold text-navy m-0">Hi, User</h4>
+            <p class="text-muted" id="date-display"></p>
+        </div>
+
+        <a href="/new" class="btn-corporate">
+            <i class="fas fa-plus-circle me-2"></i> + New Part Swap Request
+        </a>
+        <a href="/requests" class="btn-corporate">
+            <i class="fas fa-table me-2"></i> Database List
+        </a>
+    </div>
+</div>
+
+<script>
+    document.getElementById('date-display').innerText = new Date().toLocaleString();
+</script>
+{% endblock %}

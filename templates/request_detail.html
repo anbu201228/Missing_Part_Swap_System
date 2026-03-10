@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+/* Page background */
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Form card */
+.form-card {
+    background: #ffffff;
+    width: 850px;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Title bar */
+.form-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #002b5c;
+    margin-bottom: 25px;
+    padding-left: 12px;
+    border-left: 6px solid #ff4b2b;
+}
+
+/* Display fields */
+.field {
+    margin-bottom: 14px;
+}
+
+.field-label {
+    font-weight: bold;
+    color: #002b5c;
+    margin-bottom: 5px;
+}
+
+.field-value {
+    padding: 9px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 14px;
+}
+
+/* Image display */
+.image-preview {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Back button */
+.back-btn {
+    margin-top: 20px;
+    padding: 10px 28px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    background-color: #5a6268;
+}
+</style>
+
+<div class="page-wrapper">
+    <div class="form-card">
+        <div class="form-title">Request Details</div>
+
+        <div class="field">
+            <div class="field-label">Requester Name</div>
+            <div class="field-value">{{ request.requester_name }}</div>
+        </div>
+
+        <div class="field">
+            <div class="field-label">Project</div>
+            <div class="field-value">{{ request.project }}</div>
+        </div>
+
+        <div class="field">
+            <div class="field-label">Reason</div>
+            <div class="field-value">{{ request.reason }}</div>
+        </div>
+
+        <div class="field">
+            <div class="field-label">Installation Name</div>
+            <div class="field-value">{{ request.installation_name or 'N/A' }}</div>
+        </div>
+
+        <div class="field">
+            <div class="field-label">Part No</div>
+            <div class="field-value">{{ request.part_no }}</div>
+        </div>
+
+        <div class="field">
+            <div class="field-label">Part Name</div>
+            <div class="field-value">{{ request.part_name }}</div>
+        </div>
+
+        <div class="field">
+            <div class="field-label">From TS</div>
+            <div class="field-value">{{ request.from_ts }}</div>
+        </div>
+
+        <div class="field">
+            <div class="field-label">Fix TS</div>
+            <div class="field-value">{{ request.fix_ts }}</div>
+        </div>
+
+        <div class="field">
+            <div class="field-label">Date</div>
+            <div class="field-value">{{ request.date }}</div>
+        </div>
+
+        <div class="field">
+            <div class="field-label">Status</div>
+            <div class="field-value">{{ request.status }}</div>
+        </div>
+
+        {% if request.image %}
+        <div class="field">
+            <div class="field-label">Evidence Image</div>
+            <div class="d-flex align-items-center gap-2">
+                <img src="{{ url_for('static', filename='uploads/' + request.image) }}" class="image-preview" onclick="window.open(this.src)">
+                <a href="/download/image/{{ request.image }}" class="btn btn-sm btn-outline-secondary" title="Download Image"><i class="fas fa-download me-1"></i>Download</a>
+            </div>
+        </div>
+        {% endif %}
+
+        <div style="margin-top: 20px;">
+            <a href="/download/request/{{ request.id }}" class="btn btn-sm btn-outline-success me-2"><i class="fas fa-file-word me-1"></i>Download as Word</a>
+            <a href="/edit/{{ request.id }}" class="btn btn-sm btn-outline-warning me-2"><i class="fas fa-edit me-1"></i>Edit</a>
+            <a href="/requests" class="back-btn">Back to Requests</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

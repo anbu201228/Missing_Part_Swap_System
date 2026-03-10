@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+/* Page background */
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Form card */
+.form-card {
+    background: #ffffff;
+    width: 850px;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Title bar */
+.form-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #002b5c;
+    margin-bottom: 25px;
+    padding-left: 12px;
+    border-left: 6px solid #ff4b2b;
+}
+
+/* Inputs & selects */
+.form-card input,
+.form-card select {
+    width: 300px;
+    padding: 9px;
+    margin-bottom: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* File input */
+.form-card input[type="file"] {
+    padding: 5px;
+}
+
+/* Focus effect */
+.form-card input:focus,
+.form-card select:focus {
+    outline: none;
+    border-color: #002b5c;
+}
+
+/* Submit button */
+.submit-btn {
+    margin-top: 20px;
+    padding: 10px 28px;
+    background-color: #002b5c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #004080;
+}
+</style>
+
+<div class="page-wrapper">
+    <form method="POST" enctype="multipart/form-data" class="form-card">
+
+        <div class="form-title">Missing Part Request</div>
+
+        <input name="requester_name" placeholder="Requester Name" required>
+
+        <select name="project" required>
+            <option value="">Select Project</option>
+            <option>DMRC</option>
+            <option>ML4</option>
+            <option>CMRL PH-2</option>
+            <option>DML3</option>
+            <option>CMRL-96</option>
+        </select>
+
+        <select name="reason" required>
+            <option value="">Select Reason</option>
+            <option>Missing Part</option>
+            <option>NCR Part</option>
+        </select>
+
+        <input name="installation_name" placeholder="Installation Name">
+        <input name="part_no" placeholder="Part No">
+        <input name="part_name" placeholder="Part Name">
+
+        <input type="file" name="image">
+
+        <input name="from_ts" placeholder="From which TS">
+        <input name="fix_ts" placeholder="Fix in which TS">
+
+        <input type="date" name="date" required>
+
+        <button type="submit" class="submit-btn">Submit Request</button>
+
+    </form>
+</div>
+
+{% endblock %}

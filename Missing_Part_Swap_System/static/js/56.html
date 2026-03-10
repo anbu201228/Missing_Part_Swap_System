@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Missing Part / Swap Request</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+        }
+        .container {
+            width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Missing Part / Swap Request Form</h2>
+
+    <form>
+
+        <!-- 1. Requester Name -->
+        <label>1. Name of the Person (Requester Name)</label>
+        <input type="text" placeholder="Enter requester name">
+
+        <!-- 2. Project -->
+        <label>2. Project</label>
+        <select>
+            <option value="">-- Select Project --</option>
+            <option>DMRC</option>
+            <option>ML4</option>
+            <option>CMRL PH 2</option>
+            <option>DML3</option>
+            <option>CMRL - 96</option>
+        </select>
+
+        <!-- 3. Reason -->
+        <label>3. Reason to Swap</label>
+        <textarea rows="3" placeholder="Example: Missing NCR Part"></textarea>
+
+        <!-- 4. Installation Name -->
+        <label>4. Name of Installation</label>
+        <input type="text" placeholder="Enter installation name">
+
+        <!-- 5. Part Number -->
+        <label>5. Part Number</label>
+        <input type="text" placeholder="Enter part number">
+
+        <!-- 6. Image -->
+        <label>6. Image to be Attached</label>
+        <input type="file">
+
+        <!-- 7. From which TS -->
+        <label>7. From Which TS</label>
+        <input type="text" placeholder="Enter TS details">
+
+        <!-- 8. Fix in which TS -->
+        <label>8. Fix in Which TS</label>
+        <input type="text" placeholder="Enter fixing TS">
+
+        <!-- Extra -->
+        <label>Part Name</label>
+        <input type="text" placeholder="Enter part name">
+
+        <label>Date</label>
+        <input type="date">
+
+        <button type="submit">Submit Request</button>
+
+    </form>
+</div>
+
+</body>
+</html>
