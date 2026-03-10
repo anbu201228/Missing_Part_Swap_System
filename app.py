@@ -208,7 +208,8 @@ def export_word():
     
     doc = Document()
     doc.add_heading('Swap Requests Report', 0)
-    doc.add_paragraph(f'Generated on: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    doc.add_paragraph(f'Generated on: {timestamp}')
     doc.add_paragraph('')
     
     for req in data:
